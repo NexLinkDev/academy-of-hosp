@@ -1,11 +1,13 @@
 import Container from "@/shared/ui/Container/Container";
 import { HighlightText } from "@/shared/utils/Highlighter/high-light-text";
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import ReviewCard from "./ReviewCard";
+import { REVIEWS_DATA } from "./consts";
 
 const Reviews = () => {
   return (
     <Container>
-      <Box textAlign={"center"}>
+      <Box textAlign={"center"} p={"160px 0"}>
         <Text
           borderRadius={"100px"}
           border={"1px solid #C85EDC"}
@@ -32,6 +34,12 @@ const Reviews = () => {
             color: "#969493",
           })}
         </Heading>
+
+        <Flex gap={"40px"}>
+          {REVIEWS_DATA.map((review) => (
+            <ReviewCard data={review} />
+          ))}
+        </Flex>
       </Box>
     </Container>
   );

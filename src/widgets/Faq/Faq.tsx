@@ -1,12 +1,14 @@
 import Container from "@/shared/ui/Container/Container";
 import { HighlightText } from "@/shared/utils/Highlighter/high-light-text";
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import React from "react";
+import FaqItem from "./ui/FaqItem";
+import { FAQ_DATA } from "./consts";
 
 const Faq = () => {
   return (
     <Container>
-      <Box textAlign={"center"}>
+      <Box textAlign={"center"} pb={"160px"}>
         <Text
           borderRadius={"100px"}
           border={"1px solid #C85EDC"}
@@ -38,6 +40,17 @@ const Faq = () => {
           Мы собрали ответы на вопросы, которые чаще всего задают наши будущие
           студенты. <br /> Если останутся сомнения — пишите, мы всегда на связи!
         </Text>
+
+        <Flex
+          mt={"40px"}
+          direction={"column"}
+          gap={"20px"}
+          alignItems={"center"}
+        >
+          {FAQ_DATA.map((question) => (
+            <FaqItem data={question} />
+          ))}
+        </Flex>
       </Box>
     </Container>
   );
