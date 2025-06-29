@@ -19,7 +19,7 @@ const Partners = () => {
           lineHeight={"130%"}
           color={"white"}
           fontWeight={400}
-          fontSize={"36px"}
+          fontSize={{ base: "30px", md: "36px" }}
         >
           У нас есть партнёрства со многими отелями мира, кафе и международной
           платформой
@@ -30,8 +30,8 @@ const Partners = () => {
 
         <Image
           src={PARTNER_ICONS.main}
-          width={"280px"}
-          height={"85px"}
+          width={{ base: "191", lg: "280px" }}
+          height={{ base: "58px", lg: "85px" }}
           m={"60px 0"}
         />
 
@@ -39,14 +39,14 @@ const Partners = () => {
           maxWidth={"800px"}
           color={"white"}
           fontWeight={500}
-          fontSize={"22px"}
+          fontSize={{ base: "20px", md: "22px" }}
           mb={"20px"}
         >
           Международная онлайн-платформа Lobster Ink. используется в таких
           мировых компаниях как:
         </Text>
 
-        <Box className="marquee-block">
+        <Box className="marquee-block" w="100%">
           <Marquee
             speed={100}
             pauseOnHover={false}
@@ -57,7 +57,7 @@ const Partners = () => {
               <Image
                 m={"0 10px"}
                 src={company}
-                height={"85px"}
+                height={{ base: "58px", lg: "85px" }}
                 objectFit={"contain"}
               />
             ))}

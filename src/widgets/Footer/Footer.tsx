@@ -1,7 +1,9 @@
 import Container from "@/shared/ui/Container/Container";
 import { HighlightText } from "@/shared/utils/Highlighter/high-light-text";
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Image, Link, Text } from "@chakra-ui/react";
 import Contacts from "./ui/Contacts/Contacts";
+import FooterForm from "./ui/FooterForm/FooterForm";
+import { NETWORKS_DATA } from "./consts";
 
 const Footer = () => {
   return (
@@ -9,7 +11,7 @@ const Footer = () => {
       <Box bg={"#F8F8F8"} borderRadius={"35px"} p={"30px"}>
         <Text
           borderRadius={"100px"}
-          border={"1px solid #C85EDC"}
+          border={"1px solid #8C5EDB"}
           padding={"11px 20px"}
           display={"inline-block"}
           fontSize={"18px"}
@@ -34,6 +36,7 @@ const Footer = () => {
           })}
         </Heading>
 
+        <FooterForm />
         <Contacts />
 
         <Flex
@@ -42,24 +45,27 @@ const Footer = () => {
           justifyContent={"space-between"}
         >
           <Flex gap={"17px"} alignItems={"center"}>
-            <Box
-              w={"40px"}
-              h={"40px"}
-              border={"1px solid #181818"}
-              borderRadius={"50%"}
-            ></Box>
-            <Box
-              w={"40px"}
-              h={"40px"}
-              border={"1px solid #181818"}
-              borderRadius={"50%"}
-            ></Box>
-            <Box
-              w={"40px"}
-              h={"40px"}
-              border={"1px solid #181818"}
-              borderRadius={"50%"}
-            ></Box>
+            {NETWORKS_DATA.map((item) => (
+              <Link
+                href={item.link}
+                w={"40px"}
+                h={"40px"}
+                border={"1px solid #181818"}
+                borderRadius={"50%"}
+                textAlign={"center"}
+                cursor={"pointer"}
+                position={"relative"}
+              >
+                <Image
+                  src={item.icon}
+                  objectFit={"contain"}
+                  position={"absolute"}
+                  top={"50%"}
+                  left={"50%"}
+                  translate="-50% -50%"
+                />
+              </Link>
+            ))}
           </Flex>
 
           <Text color={"#4C3CDE"} fontSize={"18px"} fontWeight={500}>

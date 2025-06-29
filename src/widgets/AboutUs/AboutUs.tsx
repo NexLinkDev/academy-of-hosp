@@ -10,13 +10,12 @@ const AboutUs = () => {
       <Box p={"160px 0 0 0"}>
         <Text
           borderRadius={"100px"}
-          border={"1px solid #C85EDC"}
+          border={"1px solid #8C5EDB"}
           padding={"11px 20px"}
           display={"inline-block"}
           fontSize={"18px"}
           fontWeight={400}
           mb={"30px"}
-          color={"white"}
         >
           Немного о нас
         </Text>
@@ -25,7 +24,9 @@ const AboutUs = () => {
 
         <Grid mt={"40px"} templateColumns="repeat(2, 1fr)" gap="20px">
           {ABOUT_CARDS.map((card) => (
-            <GridItem colSpan={Array.isArray(card.list) ? 2 : 1}>
+            <GridItem
+              colSpan={{ base: 2, md: Array.isArray(card.list) ? 2 : 1 }}
+            >
               <AboutUsCard data={card} />
             </GridItem>
           ))}

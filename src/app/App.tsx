@@ -1,8 +1,8 @@
+import SignModal from "@/shared/ui/SignModal/SignModal";
 import AboutUs from "@/widgets/AboutUs/AboutUs";
 import Courses from "@/widgets/Courses/Courses";
 import Faq from "@/widgets/Faq/Faq";
 import Footer from "@/widgets/Footer/Footer";
-import Header from "@/widgets/Header/Header";
 import Intro from "@/widgets/Intro/Intro";
 import Message from "@/widgets/Message/Message";
 import Partners from "@/widgets/Partners/Partners";
@@ -15,8 +15,8 @@ const App = () => {
   // const { t } = useTranslation();
 
   return (
-    <Box>
-      <Header />
+    <Box p={"30px 0"}>
+      {/* <SignModal /> */}
       <Intro />
       <AboutUs />
       <Partners />

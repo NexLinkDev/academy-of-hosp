@@ -1,4 +1,5 @@
-import { Button, Flex, Text, VStack } from "@chakra-ui/react";
+import SignBtn from "@/shared/ui/SignBtn/SignBtn";
+import { Text, VStack } from "@chakra-ui/react";
 
 const IntroSign = () => {
   return (
@@ -14,17 +15,7 @@ const IntroSign = () => {
         трудоустройство в лучших отелях и кафе страны
       </Text>
 
-      <Button
-        height={"54px"}
-        padding={"16px 0"}
-        width={"100%"}
-        fontWeight={"500"}
-        fontSize={"18px"}
-        color={"#FFFFFF"}
-        borderRadius={"100px"}
-      >
-        Записаться на курс
-      </Button>
+      <SignBtn color={"#FFFFFF"} bg="black" />
     </VStack>
   );
 };

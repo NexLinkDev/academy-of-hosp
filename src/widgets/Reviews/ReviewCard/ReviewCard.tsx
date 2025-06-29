@@ -10,7 +10,7 @@ const ReviewCard = ({ data }: IReviewCardProps) => {
     <Flex
       bg={"#F8F8F8"}
       borderRadius={"25px"}
-      maxW={"400px"}
+      maxW={{ base: "100%", md: "400px" }}
       direction={"column"}
     >
       <Image src={defaultImg} w={"100%"} h={"260px"} borderRadius={"25px"} />

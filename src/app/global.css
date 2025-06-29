@@ -1,3 +1,5 @@
+@import "../shared/assets/fonts/fonts.css";
+
 /*Обнуление*/
 * {
   padding: 0;
@@ -76,6 +78,5 @@ h6 {
 /*--------------------*/
 
 body {
-  background: #000;
   height: 100vh;
 }

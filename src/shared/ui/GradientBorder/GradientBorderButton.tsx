@@ -1,52 +1,50 @@
-import { Box, BoxProps } from "@chakra-ui/react";
-import React, { ReactNode } from "react";
+import { Box, Button, ButtonProps } from "@chakra-ui/react";
+import React from "react";
 
-interface GradientBorderBoxProps extends BoxProps {
-  children: ReactNode;
-  borderWidth?: string;
-  borderRadius?: string;
-  gradient?: string;
+type GradientBorderColor = keyof typeof gradientSources;
+
+const gradientSources = {
+  primary: "linear-gradient(to left, #743ad5, #d53a9d)",
+  secondary: "linear-gradient(to left, #00C853, #B2FF59)",
+};
+
+interface GradientBorderButtonProps extends ButtonProps {
+  borderGradient?: GradientBorderColor;
+  background: string;
+  borderWidth: string;
 }
 
-const GradientBorderButton: React.FC<GradientBorderBoxProps> = ({
+const GradientBorderButton: React.FC<GradientBorderButtonProps> = ({
   children,
-  borderWidth = "4px",
-  borderRadius = "md",
-  gradient,
+  borderGradient = "primary",
+  borderWidth,
+  background,
   ...props
 }) => {
   return (
-    <Box
+    <Button
       position="relative"
-      borderRadius={borderRadius}
+      borderRadius="100px"
+      p="10px 20px"
+      bg={gradientSources[borderGradient]}
+      color="black"
+      overflow="hidden"
+      zIndex={1}
+      {...props}
       _before={{
         content: '""',
         position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        borderRadius: borderRadius,
-        padding: borderWidth,
-        background: gradient,
-        WebkitMask:
-          "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-        WebkitMaskComposite: "xor",
-        maskComposite: "exclude",
-        pointerEvents: "none",
+        top: borderWidth,
+        bottom: borderWidth,
+        left: borderWidth,
+        right: borderWidth,
+        background: background,
+        borderRadius: "inherit",
         zIndex: 0,
       }}
-      {...props}
     >
-      <Box
-        position="relative"
-        zIndex={1}
-        borderRadius={borderRadius}
-        bg="white"
-      >
-        {children}
-      </Box>
-    </Box>
+      <Box zIndex={2}>{children}</Box>
+    </Button>
   );
 };
 

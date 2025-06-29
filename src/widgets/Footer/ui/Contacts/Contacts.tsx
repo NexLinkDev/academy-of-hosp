@@ -21,7 +21,7 @@ const Contacts = () => {
             <Text fontSize={"18px"} fontWeight={500} mb={"20px"}>
               {contact.label}
             </Text>
-            <Text fontSize={"24px"} fontWeight={600}>
+            <Text cursor={"pointer"} fontSize={"24px"} fontWeight={600}>
               {contact.value}
             </Text>
           </Box>

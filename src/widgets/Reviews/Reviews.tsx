@@ -1,8 +1,13 @@
 import Container from "@/shared/ui/Container/Container";
 import { HighlightText } from "@/shared/utils/Highlighter/high-light-text";
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
-import ReviewCard from "./ReviewCard";
+import { Box, Heading, Text } from "@chakra-ui/react";
+import ReviewCard from "./ReviewCard/ReviewCard";
 import { REVIEWS_DATA } from "./consts";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "./Reviews.css";
 
 const Reviews = () => {
   return (
@@ -10,7 +15,7 @@ const Reviews = () => {
       <Box textAlign={"center"} p={"160px 0"}>
         <Text
           borderRadius={"100px"}
-          border={"1px solid #C85EDC"}
+          border={"1px solid #8C5EDB"}
           padding={"11px 20px"}
           display={"inline-block"}
           fontSize={"18px"}
@@ -23,8 +28,8 @@ const Reviews = () => {
         <Heading
           as={"h2"}
           fontWeight={500}
-          fontSize={"48px"}
-          lineHeight={"53px"}
+          fontSize={{ base: "37px", md: "50px" }}
+          lineHeight={{ base: "40px", md: "53px" }}
           color={"#101010"}
           m={"20px 0 40px"}
         >
@@ -35,11 +40,33 @@ const Reviews = () => {
           })}
         </Heading>
 
-        <Flex gap={"40px"}>
+        <Swiper
+          modules={[Pagination]}
+          pagination={{ clickable: true }}
+          style={{ display: "flex", gap: "140px" }}
+          slidesPerView={3}
+          spaceBetween={20}
+          loop
+          className="reviews-swiper"
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+
+            992: {
+              slidesPerView: 3,
+            },
+          }}
+        >
           {REVIEWS_DATA.map((review) => (
-            <ReviewCard data={review} />
+            <SwiperSlide>
+              <ReviewCard data={review} />
+            </SwiperSlide>
           ))}
-        </Flex>
+        </Swiper>
       </Box>
     </Container>
   );

@@ -10,7 +10,7 @@ const Courses = () => {
       <VStack p={"160px 0 0 0"} textAlign={"center"}>
         <Text
           borderRadius={"100px"}
-          border={"1px solid #C85EDC"}
+          border={"1px solid #8C5EDB"}
           padding={"11px 20px"}
           display={"inline-block"}
           fontSize={"18px"}
@@ -22,9 +22,9 @@ const Courses = () => {
 
         <Heading
           color={"#101010"}
-          fontSize={"50px"}
           fontWeight={500}
-          lineHeight={"53px"}
+          fontSize={{ base: "37px", md: "50px" }}
+          lineHeight={{ base: "40px", md: "53px" }}
           maxW={"800px"}
           m={"20px 0 40px 0"}
         >
@@ -55,7 +55,7 @@ const Courses = () => {
 
         <VStack gap={"40px"}>
           {COURSE_CARDS.map((course) => (
-            <CoursesCard data={course} />
+            <CoursesCard key={course.id} data={course} />
           ))}
         </VStack>
       </VStack>

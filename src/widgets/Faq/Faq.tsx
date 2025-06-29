@@ -1,17 +1,27 @@
 import Container from "@/shared/ui/Container/Container";
 import { HighlightText } from "@/shared/utils/Highlighter/high-light-text";
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
-import React from "react";
 import FaqItem from "./ui/FaqItem";
 import { FAQ_DATA } from "./consts";
+import { useState } from "react";
 
 const Faq = () => {
+  const [isOpen, setIsOpen] = useState<number | null>(null);
+
+  const handleOpen = (id: number) => {
+    if (isOpen === id) {
+      setIsOpen(null);
+    } else {
+      setIsOpen(id);
+    }
+  };
+
   return (
     <Container>
       <Box textAlign={"center"} pb={"160px"}>
         <Text
           borderRadius={"100px"}
-          border={"1px solid #C85EDC"}
+          border={"1px solid #8C5EDB"}
           padding={"11px 20px"}
           display={"inline-block"}
           fontSize={"18px"}
@@ -48,7 +58,12 @@ const Faq = () => {
           alignItems={"center"}
         >
           {FAQ_DATA.map((question) => (
-            <FaqItem data={question} />
+            <FaqItem
+              key={question.id}
+              data={question}
+              isOpen={isOpen}
+              handleOpen={handleOpen}
+            />
           ))}
         </Flex>
       </Box>

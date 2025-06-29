@@ -11,74 +11,74 @@ interface IAboutUsCardProps {
 const AboutUsCard = ({ data }: IAboutUsCardProps) => {
   return (
     <Flex
-      bg={"#F8F8F8"}
-      borderRadius={"25px"}
-      justifyContent={"start"}
-      gap={"20px"}
-      padding={"26px"}
-      direction={"column"}
-      height={"100%"}
+      bg="#F8F8F8"
+      borderRadius="25px"
+      justifyContent="start"
+      gap={{ base: "16px", md: "20px" }}
+      p={{ base: "20px", md: "26px" }}
+      direction="column"
+      height="100%"
     >
       <Box
-        w={"60px"}
-        h={"60px"}
-        borderRadius={"50%"}
-        bg={
-          "linear-gradient(90deg, #C85EDC -42%, #8C5EDB 73.38%), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2))"
-        }
-        position={"relative"}
+        w="60px"
+        h="60px"
+        borderRadius="50%"
+        bg="linear-gradient(90deg, #C85EDC -42%, #8C5EDB 73.38%)"
+        position="relative"
       >
         <Image
-          borderRadius={"50%"}
+          borderRadius="50%"
           src={infoSvg}
-          w={"24px"}
-          h={"24px"}
-          objectFit={"contain"}
-          position={"absolute"}
-          top={"50%"}
-          left={"50%"}
-          transform={"translate(-50%, -50%)"}
+          w="24px"
+          h="24px"
+          objectFit="contain"
+          position="absolute"
+          top="50%"
+          left="50%"
+          transform="translate(-50%, -50%)"
         />
       </Box>
 
       <Box
-        height={"1px"}
-        width={"124px"}
-        bg={
-          "linear-gradient(90deg, #C85EDC -42%, #8C5EDB 73.38%),linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2))"
-        }
+        height="1px"
+        width="124px"
+        bg="linear-gradient(90deg, #C85EDC -42%, #8C5EDB 73.38%)"
       />
 
       <GradientText
         fontWeight={500}
         fontSize={"26px"}
-        gradient="linear-gradient(90deg, #C85EDC -42%, #8C5EDB 73.38%),linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2))"
+        gradient="linear-gradient(90deg, #C85EDC -42%, #8C5EDB 73.38%)"
       >
         {data.title}
       </GradientText>
 
       {Array.isArray(data.list) ? (
-        <Flex gap={"24px"}>
-          {data.list.map((item) => (
+        <Flex
+          direction={{ base: "column", md: "row" }}
+          gap={{ base: "16px", md: "24px" }}
+        >
+          {data.list.map((item, i) => (
             <Flex
-              direction={"column"}
-              gap={"16px"}
-              p={"20px"}
-              height={"170px"}
-              bg={"#FFFFFF"}
-              borderRadius={"20px"}
+              key={i}
+              direction="column"
+              gap="12px"
+              p="16px"
+              minH="170px"
+              bg="#FFFFFF"
+              borderRadius="20px"
             >
-              <Heading as={"h4"} fontSize={"20px"} fontWeight={600}>
+              <Heading as="h4" fontSize={"20px"} fontWeight={600}>
                 {item.title}
               </Heading>
-              <Text fontSize={"17px"} fontWeight={400} color={"#737373"}>
+              <Text fontSize={"17px"} fontWeight={400} color="#737373">
                 {item.text}
               </Text>
             </Flex>
           ))}
         </Flex>
       ) : (
-        <Text fontWeight={600} fontSize={"17px"} color={"#737373"}>
+        <Text fontWeight={600} fontSize={"17px"} color="#737373">
           {HighlightText({
             text: data.text,
             highlight: data.highlight,

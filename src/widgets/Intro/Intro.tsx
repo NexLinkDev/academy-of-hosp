@@ -5,6 +5,7 @@ import guySvg from "@/shared/assets/images/svg/Photo.svg";
 import columnsSvg from "@/shared/assets/images/svg/Columns.svg";
 import CircularText from "./ui/CircularText/CircularText";
 import IntroSign from "./ui/IntroSign/IntroSign";
+import Header from "../Header/Header";
 
 const Intro = () => {
   return (
@@ -14,7 +15,10 @@ const Intro = () => {
         background={"#F8F8F8"}
         borderRadius={"35px"}
         height={"800px"}
+        pt={"30px"}
       >
+        <Header />
+
         <GradientText
           heading={"h1"}
           pt={"190px"}
