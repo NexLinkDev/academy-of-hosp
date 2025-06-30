@@ -23,12 +23,12 @@ const FaqItem = ({ data, handleOpen, isOpen }: IFaqItemProps) => {
       borderRadius="25px"
       bg="#F8F8F8"
       p="20px"
-      w="80%"
+      w={{ base: "100%", lg: "80%" }}
       onClick={() => handleOpen(data.id)}
       transition="all 0.3s ease"
     >
       <Flex justifyContent="space-between" alignItems="center">
-        <Heading fontSize="18px" fontWeight={500} as="h5">
+        <Heading fontSize="18px" fontWeight={500} as="h5" textAlign={"start"}>
           {data.question}
         </Heading>
         <Image

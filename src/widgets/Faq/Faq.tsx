@@ -34,8 +34,8 @@ const Faq = () => {
         <Heading
           as={"h2"}
           fontWeight={500}
-          fontSize={"48px"}
-          lineHeight={"53px"}
+          fontSize={{ base: "37px", md: "50px" }}
+          lineHeight={{ base: "40px", md: "53px" }}
           color={"#101010"}
           m={"20px 0 40px"}
         >

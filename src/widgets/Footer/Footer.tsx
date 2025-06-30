@@ -17,6 +17,7 @@ const Footer = () => {
           fontSize={"18px"}
           fontWeight={400}
           color={"black"}
+          bg={"white"}
         >
           Обратная связь
         </Text>
@@ -24,8 +25,8 @@ const Footer = () => {
         <Heading
           as={"h2"}
           fontWeight={500}
-          fontSize={"50px"}
-          lineHeight={"53px"}
+          fontSize={{ base: "37px", md: "50px" }}
+          lineHeight={{ base: "40px", md: "53px" }}
           color={"#040404"}
           m={"20px 0 40px"}
         >
@@ -41,8 +42,10 @@ const Footer = () => {
 
         <Flex
           mt={"60px"}
-          alignItems={"center"}
+          alignItems={{ base: "start", lg: "center" }}
+          gap={"30px"}
           justifyContent={"space-between"}
+          direction={{ base: "column", lg: "row" }}
         >
           <Flex gap={"17px"} alignItems={"center"}>
             {NETWORKS_DATA.map((item) => (

@@ -1,3 +1,4 @@
+import { useModal } from "@/shared/store/SignModal";
 import SignModal from "@/shared/ui/SignModal/SignModal";
 import AboutUs from "@/widgets/AboutUs/AboutUs";
 import Courses from "@/widgets/Courses/Courses";
@@ -13,10 +14,11 @@ import { Box } from "@chakra-ui/react";
 
 const App = () => {
   // const { t } = useTranslation();
+  const { isOpen } = useModal();
 
   return (
     <Box p={"30px 0"}>
-      {/* <SignModal /> */}
+      {isOpen && <SignModal />}
       <Intro />
       <AboutUs />
       <Partners />
